@@ -1,0 +1,23 @@
+.ant-btn-primary{
+    color: #fff;
+    background-color: #eea2a4;
+    border-color: #eea2a4;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);
+    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
+}
+
+/*.ant-btn{*/
+/*    color: #fff;*/
+/*    background-color: #eea2a4;*/
+/*    border-color: #eea2a4;*/
+/*    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.12);*/
+/*    -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);*/
+/*    box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);*/
+/*}*/
+
+.ant-btn-primary:hover,.ant-btn-primary:focus {
+    color: #fff;
+    background-color: #f0a1a8;
+    border-color: #f0a1a8;
+}

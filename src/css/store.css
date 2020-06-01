@@ -1,0 +1,18 @@
+
+body {
+    background-image: linear-gradient(to bottom right,#d0dfe6,#d0dfe6);
+
+}
+
+
+.narcolor{
+    background-color: #1f2533;
+}
+
+.trigger{
+    text-align: center;
+    height: 32px;
+
+    margin: 16px;
+}
+/*#66a9c9;*/

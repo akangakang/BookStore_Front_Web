@@ -1,0 +1,58 @@
+.myh1{
+    font-size: 52px;
+    text-align: center;
+}
+
+.myh3{
+    font-size: 24px;
+    text-align: center;
+}
+
+.myh4{
+    font-size: 20px;
+    text-align: center;
+}
+.myh31
+{
+    font-size: 20px;
+}
+
+.myh41{
+    font-size: 20px;
+
+}
+.myh6{
+    font-size: 18px;
+    text-align: center;
+}
+@font-face {
+    font-family: yangrendong;
+    src: url("font/yangrendong.ttf");
+}
+.yangrendong{
+    font-family: yangrendong, serif;
+}
+
+@font-face {
+    font-family: siyuanheiti;
+    src: url("font/siyuanheiti-ExtraLight.otf");
+}
+.siyuanheiti{
+    font-family: siyuanheiti, serif;
+    font-size: 16px;
+}
+.background{
+    background-color: #d0dfe6;
+}
+
+.navbar-inverse {
+    background-color: #2b333e;
+    border-color:#2b333e;
+    /*border-color: #619ac3;*/
+    opacity: 0.96;
+}
+
+/*body {*/
+/*    background-image: linear-gradient(to bottom right,#d0dfe6,#d0dfe6);*/
+
+/*}*/

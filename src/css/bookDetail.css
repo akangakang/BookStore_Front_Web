@@ -1,0 +1,54 @@
+body {
+    background-image: linear-gradient(to bottom right,#d0dfe6,#8abcd1);
+
+}
+
+.show{
+    width:940px;
+    top: 13%;
+    position: fixed;
+    left: 19%;
+    border-radius: 25px;
+    box-shadow: 0 0 70px 0px  #132c33;
+    background-color: #93b5cf;
+    /*background-image: linear-gradient(to bottom right,#baccd9,#8abcd1);*/
+}
+.show1{
+    width:1200px;
+    /*border-radius: 25px;*/
+    box-shadow: 0 0 60px 0px  #132c33;
+    background-color: #93b5cf;
+    /*background-image: linear-gradient(to bottom right,#baccd9,#8abcd1);*/
+}
+
+/*.ant-table {*/
+/*    border-radius: 25px;*/
+/*    -webkit-box-sizing: border-box;*/
+/*    box-sizing: border-box;*/
+/*    margin: 0;*/
+/*    padding: 0;*/
+/*    color: rgba(0, 0, 0, 0.65);*/
+/*    font-size: 14px;*/
+/*    font-variant: tabular-nums;*/
+/*    line-height: 1.5715;*/
+/*    list-style: none;*/
+/*    -webkit-font-feature-settings: 'tnum';*/
+/*    font-feature-settings: 'tnum', "tnum";*/
+/*    position: relative;*/
+/*    z-index: 0;*/
+/*    clear: both;*/
+/*    background: #fff;*/
+
+
+/*}*/
+
+/*.ant-table-thead{*/
+/*    border-radius: 25px;*/
+/*}*/
+/*.ant-table table {*/
+/*    width: 100%;*/
+/*    text-align: left;*/
+/*    border-radius: 25px 25px 25px 25px;*/
+/*    border-collapse: separate;*/
+/*    border-spacing: 0;*/
+/*}*/
