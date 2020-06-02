@@ -21,8 +21,6 @@ class BookDetail extends React.Component{
 
         this.state = {bookInfo:null};
 
-
-
     }
 
     componentDidMount(){

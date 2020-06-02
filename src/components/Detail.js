@@ -87,14 +87,7 @@ export class Detail extends React.Component{
                                 <Col span={6} ><div className="myh3"><span>简介：</span></div></Col>
                                 <Col span={17}  offset={1}><div className="myh4">{info.description}</div></Col>
                             </Row>
-                            {/*<Descriptions className="myh3">*/}
-                            {/*    <Descriptions.Item className="myh3" label={"title"} span={3}>{info.name}</Descriptions.Item>*/}
-                            {/*    <Descriptions.Item label={"作者"} span={3}>{ info.author}  </Descriptions.Item>*/}
-                            {/*    <Descriptions.Item label={"分类"} span={3}>  {info.type}    </Descriptions.Item>*/}
-                            {/*    <Descriptions.Item label={"定价"} span={3}>{<span className={"price"}>{'¥' + info.price}</span>}</Descriptions.Item>*/}
-                            {/*    <Descriptions.Item label={"状态 "} span={3}>{info.inventory !== 0? <span>有货 <span className={"inventory"}>库存{info.inventory}件</span></span> : <span className={"status"}>无货</span>}</Descriptions.Item>*/}
-                            {/*    <Descriptions.Item label={"作品简介"} span={3}>{info.description}</Descriptions.Item>*/}
-                            {/*</Descriptions>*/}
+
                     </Col>
                         <Col span={11} offset={1}>
                         <div className="book-image"><img alt="image" src={info.extraCover.image} style={{height:"400px"}}/></div>

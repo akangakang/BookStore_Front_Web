@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Home from './../view/Home'
+import Home from '../discard/Home'
 
 
 
@@ -12,7 +12,8 @@ import Login from "../view/Login";
 import BookDetail from "../view/BookDetail"
 import LoginRoute from "./LoginRoute";
 import PrivateRoute from "./PrivateRoute";
-import OrderView from "../view/Order";
+import OrderView from "../discard/Order";
+import OrderView1 from "../view/OrderView";
 import HomeView from "../view/HomeView";
 import bookManage from "../view/BookManage";
 import userManage from "../view/UserManage";
@@ -25,7 +26,7 @@ const BasicRouter = () => (
             <Route exact path="/register" component={Register}/>
             <PrivateRoute exact path="/cart" component={Cart}/>
             <Route exact path="/getBookDetails" component={BookDetail}/>
-            <PrivateRoute exact path="/order" component={OrderView}/>
+            <PrivateRoute exact path="/order" component={OrderView1}/>
             <PrivateRoute exact path="/bookManage" component={bookManage}/>
             <PrivateRoute exact path="/userManage" component={userManage}/>
         </Switch>

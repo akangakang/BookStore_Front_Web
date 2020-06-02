@@ -369,7 +369,7 @@ class EditableTable extends React.Component {
                 this.setState({
                     dataSource: newData,
                 });
-                message.success(data.msg)
+                // message.success(data.msg)
             }
             else message.error(data.msg);
         };

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import Store from "./view/Store";
 import Register from './view/Register'
-import Home from './view/Home'
+import Home from './discard/Home'
 import * as serviceWorker from './serviceWorker';
 import Nar1 from "./components/NarBar";
 import Login from './view/Login';

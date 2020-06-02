@@ -13,9 +13,9 @@ class OrderList extends React.Component{
     render(){
         const bigBlock=[];
 
-        this.props.orderItems.forEach(function(key) {
+        this.props.orderItems.forEach(function(item) {
                // alert(key);
-                bigBlock.push(<OneOrder itemId={key}/>)
+                bigBlock.push(<OneOrder item={item} />)
 
             });
 

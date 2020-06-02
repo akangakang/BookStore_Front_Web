@@ -19,25 +19,7 @@ const onFinishFailed = errorInfo => {
 
 class LogInBlock extends React.Component{
     formRef = React.createRef();
-    // handleSubmit = e => {
-    //     alert("!");
-    //     e.preventDefault();
-    //
-    //     this.formRef.current.validateFields().then(values => {
-    //
-    //             console.log('Received values of form: ', values);
-    //
-    //             userService.login(values);
-    //
-    //     });
-    //     this.props.form.validateFields((err, values) => {
-    //         if (!err) {
-    //             console.log('Received values of form: ', values);
-    //
-    //             userService.login(values);
-    //         }
-    //     });
-    // };
+
 
     render() {
         // const { getFieldDecorator } = this.props.form;

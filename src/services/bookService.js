@@ -62,3 +62,13 @@ export const addBook=(data,callback)=>{
     const url = "http://localhost:8080/addBook";
     postRequest(url, data,callback);
 };
+
+export const editImg=(key,img,callback)=>{
+    const url= "http://localhost:8080/editImg";
+    let map={};
+    map['key']=key;
+    map['img']=img;
+
+    postRequest(url,map,callback);
+
+};

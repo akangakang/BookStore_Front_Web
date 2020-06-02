@@ -38,3 +38,9 @@ export const getOrderTime=(itemId,callback)=>{
     const  url =  "http://localhost:8080/getOrderTime?orderId="+itemId;
     return getRequest(url,callback);
 };
+
+export const getOrderAllInfo =(callback)=>{
+
+    const  url =  "http://localhost:8080/getOrderAllInfo?userId="+JSON.parse(sessionStorage.getItem("user")).userId;
+    return getRequest(url,callback);
+};

@@ -193,7 +193,6 @@ class EditableTable extends React.Component {
                 align: 'center',
                 render: (text, record) =>
                     this.state.dataSource.length >= 1 ? (
-
                         <Link to={{
                             pathname: '/getBookDetails',
                             search: '?id=' +record.key}}

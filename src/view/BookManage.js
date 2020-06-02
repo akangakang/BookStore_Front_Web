@@ -13,10 +13,11 @@ import {
     getBooksAllInfo,
     getBooksByType,
     getTypes,
-    deleteType, addType, addBook
+    deleteType, addType, addBook, editImg
 } from "../services/bookService";
 import { Tabs } from 'antd';
 import NestedTable from "../components/NestedTableForOrder";
+import UploadImg from "../components/UploadImg";
 
 const { TabPane } = Tabs;
 const {  Content, Footer} = Layout;
@@ -107,6 +108,7 @@ const EditableCell = ({
     return <td {...restProps}>{childNode}</td>;
 };
 
+
 class EditableTable extends React.Component {
 
 
@@ -116,7 +118,7 @@ class EditableTable extends React.Component {
             {
                 title: 'ID',
                 dataIndex: 'key',
-                width: '3%',
+                width: '1%',
                 align: 'center',
                 sorter: {
                     compare: (a, b) => a.key- b.key,
@@ -128,16 +130,25 @@ class EditableTable extends React.Component {
             {
                 title: 'COVER',
                 dataIndex: 'cover',
-                width: '5%',
                 align: 'center',
-                render:(record)=><img  style={{maxWidth:150, height:'auto'}} src={record} />,
+                // editable: true,
+                render:(text,record)=>
+                    (record.cover == "")? <UploadImg getBase64={this.getBase64} id={record.key}/>:
+                        <Popconfirm title="确定要修改封面?您将放弃此封面" onConfirm={() => this.handleChangeImg(record.key)}>
+                          {  (this.state.up == record.key)? <UploadImg getBase64={this.getBase64} id={record.key}/>
+                            :<img alt={record.book} style={{maxWidth:90, height:'auto'}} src={record.cover}  />}
 
+                        </Popconfirm>
+
+                ,
+                // getBase64={this.getBase64} key={record.key}
+            // <img  style={{maxWidth:150, height:'auto'}} src={record} />
                 //...this.getColumnSearchProps('cover'),
             },
             {
                 title: 'BOOK',
                 dataIndex: 'book',
-                width: '5%',
+                width: '12%',
                 editable: true,
                 align: 'center',
                 key:'book',
@@ -148,7 +159,7 @@ class EditableTable extends React.Component {
             {
                 title: 'AUTHOR',
                 dataIndex: 'author',
-                width: '5%',
+                width: '10%',
                 editable: true,
                 align: 'center',
 
@@ -157,7 +168,7 @@ class EditableTable extends React.Component {
             {
                 title: 'ISBN',
                 dataIndex: 'isbn',
-                width: '3%',
+                width: '1%',
                 editable: true,
                 align: 'center',
                 sorter: {
@@ -169,7 +180,7 @@ class EditableTable extends React.Component {
             {
                 title: 'STOCK',
                 dataIndex: 'stock',
-                width: '4%',
+                width: '1%',
                 editable: true,
                 align: 'center',
                 sorter: {
@@ -181,19 +192,19 @@ class EditableTable extends React.Component {
             {
                 title: 'PRICE',
                 dataIndex: 'price',
-                width: '5%',
+                width: '1%',
                 editable: true,
                 align: 'center',
                 sorter: {
                     compare: (a, b) => a.price- b.price,
 
                 },
-                ...this.getColumnSearchProps('price'),
+                // ...this.getColumnSearchProps('price'),
             },
             {
                 title: 'TYPE',
                 dataIndex: 'type',
-                width: '5%',
+                width: '7%',
                 editable: true,
                 align: 'center',
                 // sorter: {
@@ -205,7 +216,7 @@ class EditableTable extends React.Component {
             {
                 title: 'DESCRIPTION',
                 dataIndex: 'description',
-                width: '30%',
+                width: '45%',
                 editable: true,
                 align: 'center',
                 // sorter: {
@@ -217,7 +228,7 @@ class EditableTable extends React.Component {
             {
                 title: 'SALE',
                 dataIndex: 'sale',
-                width: '3%',
+                width: '1%',
                 editable:true,
                 align: 'center',
                 // sorter: {
@@ -236,11 +247,13 @@ class EditableTable extends React.Component {
                 title: 'DELETE',
                 dataIndex: 'operation',
                 align: 'center',
-                width: '5%',
+                width: '1%',
                 render: (text, record) =>
                     this.state.dataSource.length >= 1 ? (
+
                         <Popconfirm title="Sure to delete?" onConfirm={() => this.handleDelete(record.key)}>
                             <Button type="primary">Delete</Button>
+
                         </Popconfirm>
                     ) : null,
             },
@@ -252,6 +265,7 @@ class EditableTable extends React.Component {
 
             dataSource: [],
             rowData:[],
+            up:0,
 
         };
 
@@ -271,8 +285,53 @@ class EditableTable extends React.Component {
         //dataSource:[],
 
     };
+    handleChangeImg=(key)=>{
+      this.setState({
+          up:key
+      })
+    };
+     getBase64=(img,key, callback)=> {
+        const reader = new FileReader();
+        reader.addEventListener('load', () => callback(reader.result));
+         const newData = [...this.state.dataSource];
+         const index = newData.findIndex(item => key === item.key);
+         const item = newData[index];
+         let newImg =item;
+       const mycall=()=>{
+           this.setState({
+               up:-1,
+               dataSource:newData
+           })
+       };
 
 
+         // alert( newImg['cover']);
+         // newData.splice(index, 1, { ...item, ...row });
+         // const callback=(data)=>{
+         //     message.config({
+         //         top: 50,
+         //         duration: 2,
+         //         maxCount: 3,
+         //         rtl: true,
+         //     });
+         //     if(data.status>0)
+         //     {
+         //         this.setState({
+         //             dataSource: newData,
+         //         });
+         //     }
+         //     else message.error(data.msg);
+         // };
+        reader.readAsDataURL(img);
+
+         reader.onload = function () {
+             // 若只需base64编码部分，可以根据 ',' 进行分割取后面部分即可
+             newImg['cover']=reader.result.split(',').toString();
+             newData.splice(index, 1, { ...item, ...newImg });
+             editImg(key,reader.result.split(',').toString(),mycall);
+
+         }
+    };
     toggle = () => {
         this.setState({
             collapsed: !this.state.collapsed,
@@ -381,7 +440,7 @@ class EditableTable extends React.Component {
             sale: `1`,
             description: `description `,
             price:'0',
-            cover:'https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg'
+            cover:""
         };
         const  callback=(data)=>{
             alert(JSON.stringify(data));

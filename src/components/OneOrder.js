@@ -21,7 +21,7 @@ class OneOrderList extends React.Component {
                 dataIndex: 'cover',
                 width: '16%',
                 align: 'center',
-                render:(record)=><img  style={{maxWidth:150, height:'auto'}} src={record}  />,
+                render:(record)=><img  style={{maxWidth:90, height:'auto'}} src={record}  />,
 
                 //...this.getColumnSearchProps('cover'),
             },
@@ -161,24 +161,29 @@ class OneOrder extends React.Component{
     constructor(props) {
         super(props);
 
-        this.state = {
-            orderInfo:null,
-            time:null,
-        };
+        // this.state = {
+        //     orderInfo:null,
+        //     time:null,
+        //     newTime:null
+        // };
         // const callback =(data) => {this.setState({orderInfo: data})};
         // getOneOrder(this.props.itemId, callback);
     }
 
-    componentDidMount(){
-        // alert("id"+bookId);
-        const callback1 =(data) => {this.setState({orderInfo: data})};
-        const callback2 =(data) =>{
-            let timestamp4 = new Date(data);
-            this.setState({time:timestamp4.toLocaleDateString().replace(/\//g, "-") + " " + timestamp4.toTimeString().substr(0, 8)})
-        };
-        getOneOrder(this.props.itemId, callback1);
-        getOrderTime(this.props.itemId, callback2);
-    }
+    // componentDidMount(){
+    //     // alert("id"+bookId);
+    //     // const callback1 =(data) => {this.setState({orderInfo: data})};
+    //     // const callback2 =(data) =>{
+    //     //     let timestamp4 = new Date(data);
+    //     //     this.setState({time:timestamp4.toLocaleDateString().replace(/\//g, "-") + " " + timestamp4.toTimeString().substr(0, 8)})
+    //     // };
+    //     // getOneOrder(this.props.itemId, callback1);
+    //     // getOrderTime(this.props.itemId, callback2);
+    //
+    //     let timestamp4 = new Date(this.props.item.date);
+    //     this.setState({newTime:timestamp4.toLocaleDateString().replace(/\//g, "-") + " " + timestamp4.toTimeString().substr(0, 8)})
+    //
+    // }
 
     render(){
         return(
@@ -192,12 +197,12 @@ class OneOrder extends React.Component{
                                 <Row>
                                     <Col >
                                         <Button type="primary" icon={<CheckSquareOutlined />}>
-                                            Order :{ this.props.itemId}
+                                            Order :{ this.props.item.orderId}
                                         </Button>
                                     </Col>
                                     <Col offset={1}>
                                         <Button type="primary" icon={<FieldTimeOutlined />}>
-                                            Order :{this.state.time}
+                                            Order :{new Date(this.props.item.date).toLocaleDateString().replace(/\//g, "-") + " " + new Date(this.props.item.date).toTimeString().substr(0, 8)}
                                         </Button>
                                     </Col>
 
@@ -205,7 +210,7 @@ class OneOrder extends React.Component{
 
                                 <br/>
 
-                                <OneOrderList dataSource={this.state.orderInfo}/>
+                                <OneOrderList dataSource={this.props.item.myOrder}/>
                             </Col>
                         </Row>
 
