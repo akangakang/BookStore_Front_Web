@@ -17,6 +17,7 @@ import OrderView1 from "../view/OrderView";
 import HomeView from "../view/HomeView";
 import bookManage from "../view/BookManage";
 import userManage from "../view/UserManage";
+import AdminRoute from "./AdminRoute";
 const BasicRouter = () => (
     <HashRouter>
         <Switch>
@@ -27,7 +28,7 @@ const BasicRouter = () => (
             <PrivateRoute exact path="/cart" component={Cart}/>
             <Route exact path="/getBookDetails" component={BookDetail}/>
             <PrivateRoute exact path="/order" component={OrderView1}/>
-            <PrivateRoute exact path="/bookManage" component={bookManage}/>
+            <AdminRoute exact path="/bookManage" component={bookManage}/>
             <PrivateRoute exact path="/userManage" component={userManage}/>
         </Switch>
     </HashRouter>

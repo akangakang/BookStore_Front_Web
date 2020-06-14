@@ -60,6 +60,10 @@ export const checkSession = (callback) => {
     const url = `http://localhost:8080/checkSession`;
     postRequest(url, {}, callback);
 };
+export const checkAdmin = (callback) => {
+    const url = `http://localhost:8080/checkAdmin`;
+    postRequest(url, {}, callback);
+};
 
 export const register=(data,callback)=>{
     const url = `http://localhost:8080/register`;
