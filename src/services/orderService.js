@@ -39,10 +39,11 @@ export const getOrderTime=(itemId,callback)=>{
     return getRequest(url,callback);
 };
 
-export const getOrderAllInfo =(callback)=>{
+export const getMyOrderAllInfo =(callback)=>{
 
-    const  url =  "http://localhost:8080/getOrderAllInfo?userId="+JSON.parse(sessionStorage.getItem("user")).userId;
+    const  url =  "http://localhost:8080/getMyOrderAllInfo?userId="+JSON.parse(sessionStorage.getItem("user")).userId;
     return getRequest(url,callback);
 };
+
 
 

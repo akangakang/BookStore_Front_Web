@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {bookSale, getBooksForStatistic} from "../services/bookService";
+import {bookSale, getBooksForStatistic} from "../services/statisticsService";
 import compareDate from "./CompareDate";
 import {Col, Row, Table} from "antd";
 import TimeSelect from "./TimeSelect";

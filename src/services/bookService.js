@@ -73,12 +73,4 @@ export const editImg=(key,img,callback)=>{
 
 };
 
-export const bookSale=(callback)=>{
-    const url = "http://localhost:8080/bookSale";
-    getRequest(url,callback);
-};
 
-export const getBooksForStatistic=(callback)=>{
-    const url = "http://localhost:8080/getBooksForStatistic";
-    getRequest(url,callback);
-};

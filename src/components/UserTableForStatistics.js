@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {bookSale} from "../services/bookService";
+import {bookSale} from "../services/statisticsService";
 import {getAllUserForStatistic} from "../services/userService";
 import compareDate from "./CompareDate";
 import {Col, Row, Table} from "antd";

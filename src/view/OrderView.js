@@ -1,25 +1,22 @@
 import React, {Component} from 'react';
 import {Layout, Carousel, Row, Col, Form, Input, Checkbox, Button} from 'antd'
 
-import {withRouter} from "react-router-dom";
-import {Detail} from "../components/Detail"
-
-import {getOrderAllInfo, getOrderKey, getOrders} from "../services/orderService";
+import { getMyOrderAllInfo, getOrderKey, getOrders} from "../services/orderService";
 
 import Nar1 from "../components/NarBar";
 
 import './../css/login.css'
 import './../css/bookDetail.css'
-import OneOrder from "../components/OneOrder";
+
 import OrderList from "../components/OrderList";
 
 import {Empty} from 'antd';
 import {DatePicker} from 'antd';
 import TimeSelect from "../components/TimeSelect";
 import {Tabs} from 'antd';
-import {AudioOutlined} from '@ant-design/icons';
-import compareDate from "../components/CompareDate";
 
+import compareDate from "../components/CompareDate";
+import UserSelfTable from "../components/UserSelfStatistic";
 const {Search} = Input;
 const {RangePicker} = DatePicker;
 const {TabPane} = Tabs;
@@ -58,7 +55,7 @@ class OrderView1 extends React.Component {
             });
             console.log(data);
         };
-        getOrderAllInfo(callback);
+        getMyOrderAllInfo(callback);
 
     }
 
@@ -181,6 +178,13 @@ class OrderView1 extends React.Component {
                                 </div>
                             </TabPane>
                             <TabPane tab="消费统计" key="2">
+                                {this.state.orderItem.length > 0 ?
+                                    <UserSelfTable />: null}
+
+                                <br/>
+                                {/*<OneOrder itemId={1}/>*/}
+                                {this.state.showOrderItem.length > 0 ? <OrderList orderItems={this.state.showOrderItem}/> :
+                                    <MyEmpty/>}
 
                             </TabPane>
 
