@@ -44,7 +44,7 @@ export const logout = () => {
            //sessionStorage.setItem('isLog',null);
             sessionStorage.removeItem("isLog");
             sessionStorage.removeItem("user");
-            localStorage.removeItem("user");
+            // localStorage.removeItem("user");
             //history.push("/login");
             message.success(data.msg);
             window.location.href="/";
@@ -74,6 +74,12 @@ export const getAllUser=(callback)=>{
     const url=`http://localhost:8080/getAllUser`;
     getRequest(url,callback);
 };
+
+export const getAllUserForStatistic=(callback)=>{
+    const url=`http://localhost:8080/getAllUserForStatistic`;
+    getRequest(url,callback);
+};
+
 
 export const editUser = ( data,callback) => {
     // const url = `${config.apiUrl}/getBooks`;

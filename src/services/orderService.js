@@ -44,3 +44,5 @@ export const getOrderAllInfo =(callback)=>{
     const  url =  "http://localhost:8080/getOrderAllInfo?userId="+JSON.parse(sessionStorage.getItem("user")).userId;
     return getRequest(url,callback);
 };
+
+

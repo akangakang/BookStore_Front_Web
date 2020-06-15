@@ -42,6 +42,7 @@ class Nar1 extends Component{
                             <li><a href="#/store">STORE</a></li>
                             {JSON.parse(sessionStorage.getItem("user"))!= null ? JSON.parse(sessionStorage.getItem("user")).userType!=1 ?null:<li><a href="#/bookManage">BOOK-MANAGE</a></li>:null}
                             {JSON.parse(sessionStorage.getItem("user"))!= null ? JSON.parse(sessionStorage.getItem("user")).userType!=1 ?null:<li><a href="#/userManage">USER-MANAGE</a></li>:null}
+                            {JSON.parse(sessionStorage.getItem("user"))!= null ? JSON.parse(sessionStorage.getItem("user")).userType!=1 ?null:<li><a href="#/statistics">STATISTICS</a></li>:null}
                         </ul>
 
                         <p className="navbar-text navbar-right"></p>

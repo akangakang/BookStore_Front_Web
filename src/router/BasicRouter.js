@@ -18,6 +18,7 @@ import HomeView from "../view/HomeView";
 import bookManage from "../view/BookManage";
 import userManage from "../view/UserManage";
 import AdminRoute from "./AdminRoute";
+import Statistics from "../view/Statistics";
 const BasicRouter = () => (
     <HashRouter>
         <Switch>
@@ -29,7 +30,8 @@ const BasicRouter = () => (
             <Route exact path="/getBookDetails" component={BookDetail}/>
             <PrivateRoute exact path="/order" component={OrderView1}/>
             <AdminRoute exact path="/bookManage" component={bookManage}/>
-            <PrivateRoute exact path="/userManage" component={userManage}/>
+            <AdminRoute exact path="/userManage" component={userManage}/>
+            <AdminRoute exact path="/statistics" component={Statistics}/>
         </Switch>
     </HashRouter>
 );

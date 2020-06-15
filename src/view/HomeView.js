@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 import {Card, Avatar, Button} from 'antd';
 
 import {getBooksByType, getTypes} from "../services/bookService";
+import MyPieSlice from "../components/SliderChart";
 
 const { Meta } = Card;
 
@@ -268,9 +269,10 @@ class HomeView extends Component {
                         <br/>
                         <div> {bigBlock}</div>
 
-                        <br/> <br/>
                         <div style={{ textAlign: 'center' }}>AKang Design ©2020 Created by AKang</div>
                         <br/> <br/>
+
+
                     </div>
 
                 </div>
