@@ -2,9 +2,10 @@ import React, {Component} from "react";
 import {bookSale} from "../services/statisticsService";
 import {getAllUserForStatistic} from "../services/userService";
 import compareDate from "./CompareDate";
-import {Col, Row, Table} from "antd";
+import {Button, Col, Row, Table} from "antd";
 import TimeSelect from "./TimeSelect";
 import MyPieSlice from "./SliderChart";
+import {Link} from "react-router-dom";
 
 class UserTable extends Component{
     constructor(props) {
@@ -28,14 +29,14 @@ class UserTable extends Component{
     componentDidMount() {
         const callbackForAllUserInfo =  (data) => {
 
-            console.log(data);
+            // console.log(data);
             this.setState({
                 allUserInfo:data,
             });
             bookSale(callbackForAllOrderItem);
         };
         const callbackForAllOrderItem=(data)=>{
-            console.log(data);
+            // console.log(data);
             this.setState({allOrderItem:data});
 
             //计算出从一开始到现在的销量排名
@@ -50,10 +51,12 @@ class UserTable extends Component{
                 if(index>=0)
                 {
                     newData[index].price+=number*price;
+                    newData[index].number+=number;
                 }
 
             });
 
+            console.log(newData);
 
             newData.sort(this.compare('price'));
             this.setState({allUserInfo:newData});
@@ -100,6 +103,7 @@ class UserTable extends Component{
                 if(index>=0)
                 {
                     newData1[index].price+=number*price;
+                    newData1[index].numer+=number;
                 }
 
             }
@@ -149,6 +153,7 @@ class UserTable extends Component{
                 if(index>=0)
                 {
                     newData[index].price+=number*price;
+                    newData[index].numer+=number;
                 }
 
             });
@@ -182,14 +187,29 @@ class UserTable extends Component{
                 align: 'center',
                 // ...this.getColumnSearchProps('book'),
             },
+            {
+                title: '购书数量',
+                dataIndex: 'number',
+                key:'number',
+                align: 'center',
+                // ...this.getColumnSearchProps('book'),
+                sorter: {
+                    compare: (a, b) => a.number- b.number,
+
+                },
+
+            },
 
             {
                 title: '消费额',
                 dataIndex: 'price',
                 key:'price',
                 align: 'center',
+
+            render: (text, record) =>
+            parseFloat(record.price).toFixed(2),
                 sorter: {
-                    compare: (a, b) => a.number- b.number,
+                    compare: (a, b) => a.price- b.price,
 
                 },
 
@@ -207,6 +227,7 @@ class UserTable extends Component{
         this.state.sortedData.forEach((item)=>{
             data.push({
                 name:item.name,
+                // value:parseFloat(item.price).toFixed(2).toString()
                 value:item.price
             })
         });

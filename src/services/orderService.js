@@ -8,7 +8,7 @@ export const placeOrder = (select)=>{
         maxCount: 3,
         rtl: true,
     });
-    alert(select);
+    // alert(select);
     const callback = (data) => {
         //alert("data"+data.status);
         message.success(data.status);

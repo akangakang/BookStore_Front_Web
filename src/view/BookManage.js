@@ -443,7 +443,7 @@ class EditableTable extends React.Component {
             cover:""
         };
         const  callback=(data)=>{
-            alert(JSON.stringify(data));
+            // alert(JSON.stringify(data));
             this.setState({
                 dataSource: [...dataSource, data],
             });
