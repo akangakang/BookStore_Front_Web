@@ -51,7 +51,7 @@ class BookBlock extends Component {
                     search: '?id=' +this.props.id}}
                       target="_blank"
                 >
-                    <Button type="primary" >View More</Button>
+                    {/*<Button type="primary" >View More</Button>*/}
                 </Link>
             </div>
 

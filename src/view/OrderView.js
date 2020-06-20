@@ -179,12 +179,12 @@ class OrderView1 extends React.Component {
                             </TabPane>
                             <TabPane tab="消费统计" key="2">
                                 {this.state.orderItem.length > 0 ?
-                                    <UserSelfTable />: null}
+                                    <UserSelfTable />:  <MyEmpty/>}}
 
                                 <br/>
                                 {/*<OneOrder itemId={1}/>*/}
-                                {this.state.showOrderItem.length > 0 ? <OrderList orderItems={this.state.showOrderItem}/> :
-                                    <MyEmpty/>}
+                                {/*{this.state.showOrderItem.length > 0 ? <OrderList orderItems={this.state.showOrderItem}/> :*/}
+
 
                             </TabPane>
 
