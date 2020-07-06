@@ -1,9 +1,9 @@
-import React, {Component} from "react";
-import {Modal, Button, Card, message} from 'antd';
+import React from "react";
+import {Modal, Button, message} from 'antd';
 import {TransactionOutlined} from "@ant-design/icons";
 import "../css/orderModal.css"
 import {placeOrder} from "../services/orderService";
-import { Alert } from 'antd';
+
 class OrderModal extends React.Component {
 
     state = { visible: false };

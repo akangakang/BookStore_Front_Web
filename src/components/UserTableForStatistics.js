@@ -227,8 +227,8 @@ class UserTable extends Component{
         this.state.sortedData.forEach((item)=>{
             data.push({
                 name:item.name,
-                // value:parseFloat(item.price).toFixed(2).toString()
-                value:item.price
+                value:parseFloat(item.price.toFixed(2))
+                // value:item.price.toFixed(1)
             })
         });
         // console.log(data);
